@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai01</title>
+</head>
+
+<body>
+    <script>
+        //Coding Challenge #1
+        /*Mark and John are trying to compare their BMI (Body Mass Index), which is
+        calculated using the formula:
+        BMI = mass / height ** 2 = mass / (height * height) (mass in kg
+        and height in meter).*/
+
+        //Store Mark's and John's mass and height in variables
+        var markMass = 78;
+        var markHeight = 1.69;
+
+        var johnMass = 92;
+        var johnHeight = 1.95;
+        //Calculate both their BMIs using the formula
+        markBMI = markMass / markHeight ** 2;
+        johnBMI = johnMass / (johnHeight * johnHeight);
+        console.log(markBMI);
+        console.log(johnBMI);
+        //Create a Boolean variable 'markHigherBMI' containing information about whether Mark has a higher BMI than John.
+        var markHigherBMI = markBMI > johnBMI;
+        console.log(markHigherBMI);
+
+        //Coding Challenge #2
+        /*Use the BMI example from Challenge #1, and the code you already wrote, and
+        improve it.*/
+
+        //Print a nice output to the console, saying who has the higher BMI. The messageis either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+        if (markHigherBMI == 0) {
+            console.log("John's BMI is higher than Mark's!");
+        } else {
+            console.log("Mark's BMI is higher than John's!");
+        }
+        //Use a template literal to include the BMI values in the outputs. Example: "Mark's BMI (28.3) is higher than John's (23.9)!"
+        if (markHigherBMI == 0) {
+            console.log("John's BMI (" + johnBMI + ") is higher than Mark's! (" + markBMI + ")");
+        } else {
+            console.log("Mark's BMI (" + markBMI, +") is higher than John's! (" + johnBMI + ")");
+        }
+        //Coding Challenge #3
+        /*There are two gymnastics teams, Dolphins and Koalas. They compete against each
+        other 3 times. The winner with the highest average score wins a trophy!*/
+
+        //Calculate the average score for each team, using the test data below
+        var Dolphins = (96 + 108 + 89) / 3;
+        var Koalas = (88 + 91 + 110) / 3;
+        console.log(Dolphins);
+        console.log(Koalas);
+        //Compare the team's average scores to determine the winner of the competition, and print it to the console. Don't forget that there can be a draw, so test for that as well (draw means they have the same average score)
+        if (Dolphins > Koalas) {
+            console.log("Dolphins win " + Dolphins);
+        }
+        if (Dolphins == Koalas) {
+            console.log("Draw " + Dolphins);
+        }
+        if (Dolphins < Koalas) {
+            console.log("Koalas win " + Koalas);
+        }
+        /*Bonus 1: Include a requirement for a minimum score of 100. With this rule, a
+        team only wins if it has a higher score than the other team, and the same time a
+        score of at least 100 points. Hint: Use a logical operator to test for minimum
+        score, as well as multiple else-if blocks �*/
+        const Dolphins1 = [97, 112, 89];
+        const Koalas1 = [109, 95, 123];
+        const new_Dolphins1 = Dolphins1.filter(item => item > 100);
+        console.log("new_Dolphins1 " + new_Dolphins1);
+        const new_Koalas1 = Koalas1.filter(item => item > 100)
+        console.log("new_Koalas1 " + new_Koalas1);
+        // tính tong cac phan tu trong mang
+        function sumArray(mang) {
+            let sum = 0;
+            for (let i = 0; i < mang.length; i++) {
+                sum += mang[i];
+            }
+            return sum;
+        }
+        console.log(sumArray(new_Dolphins1) / new_Dolphins1.length);
+        console.log(sumArray(new_Koalas1) / new_Koalas1.length);
+        if (sumArray(new_Dolphins1) / new_Dolphins1.length > sumArray(new_Koalas1) / new_Koalas1.length) {
+            console.log("Dolphins win " + sumArray(new_Dolphins1) / new_Dolphins1.length);
+        }
+        if (sumArray(new_Dolphins1) / new_Dolphins1.length == sumArray(new_Koalas1) / new_Koalas1.length) {
+            console.log("Draw " + sumArray(new_Dolphins1) / new_Dolphins1.length);
+        }
+        if (sumArray(new_Dolphins1) / new_Dolphins1.length < sumArray(new_Koalas1) / new_Koalas1.length) {
+            console.log("Koalas win " + sumArray(new_Koalas1) / new_Koalas1.length);
+        }
+    </script>
+</body>
+
+</html>
